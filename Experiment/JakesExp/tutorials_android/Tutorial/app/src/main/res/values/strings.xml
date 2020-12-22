@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="local">https://40495930-9428-436b-838a-e08decd52cbd.mock.pstmn.io</string>
+    <string name="remote">http://remotehost:8080</string>
+</resources>

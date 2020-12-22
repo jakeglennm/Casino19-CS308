@@ -1,0 +1,43 @@
+Created 9/23/2020
+
+Must be connected to vpn
+Url: coms-309-rp-10.cs.iastate.edu:8080
+Where 8080 is the port SpringBoot is running on
+
+Functionality will be give as .../*some request (type of request)
+where ... is above url
+
+Ex. coms-309-rp-10.cs.iastate.edu:8080/users
+
+We currently as of 9/23 have a users table and games table, games is left unimplemented for now
+
+Current User Funtionality (9/23)
+
+	.../users (get)
+	  this will return all objects in database as a json, an array of user objects
+	  
+	.../usernames (get)
+	  returns string array where each string is of the form "id:username"
+	  this is intended to be used to check if a user exists during login/signup process
+	  mean to minimize the use of passwords moving back and forth, this is subject to change...
+    
+	.../user/{id} (get)
+	  returns all attributes of the user with the given id
+	  returns as json object
+	
+	.../user (post)
+	  posting to /user will add a new user, the format will change based on current implementation
+	  of SpringBoot app. A current example, pre demo 2 will be given below
+	  {"username": "ateso", "password": "sk14", "email" : "athte.edu"}
+	  shortly after demo 2 this will likely change, to show all new attributes
+	  hopefull we will have ways to chage each aspect of a user with similar post requests
+	  
+	.../user/{id}
+	  A delete mapping will remove the user of the id given in the request.
+	  A message saying that user was removed will be sent back upon successful completion
+	
+	.../users/clearall
+	  this command will delete all current users and data, this needs to be hidden eventually but may
+	  prove to be useful as we test and add many fake users 
+	  likeley to be removed, or saved for more privleged roles
+

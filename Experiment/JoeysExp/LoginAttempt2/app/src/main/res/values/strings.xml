@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CASINO19</string>
+    <!--    Login Page      -->
+    <string name="loginUserHint">Username</string>
+    <string name="new_sign_up">New? Sign up</string>
+    <string name="login">Login</string>
+    <string name="enter_password">Password</string>
+</resources>

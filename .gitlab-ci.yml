@@ -1,0 +1,75 @@
+stages:
+    - mavenbuild
+    - maventest
+    - autodeploy
+    - androidbuild
+    - androidtest
+    
+maven-build:
+    stage: mavenbuild
+    tags:
+        - BACKEND
+    script:
+        - cd Backend/Casino-19/
+        - mvn package -B
+    only:
+        - master
+        
+maven-test:
+    stage: maventest
+    tags:
+        - BACKEND
+    script:
+        - cd Backend/Casino-19
+        - mvn test
+        - mvn package -B  
+    artifacts:
+        paths:
+            - Backend/Casino-19/target/*.jar
+    only:
+        - master
+        
+autodeploy:
+    stage: autodeploy
+    tags:
+        - BACKEND
+    script:
+        - cd Backend/Casino-19
+        - mvn test
+        - mvn package -B
+        - sudo mv target/*jar /target/web-demo.jar
+        - sudo systemctl stop web-demo
+        - sudo systemctl start web-demo
+    only:
+        - master
+        
+android-build:
+    image: javiersantos/android-ci:latest
+    stage: androidbuild
+    before_script:
+        - export GRADLE_USER_HOME=`pwd`/.gradle
+        - chmod +x ./Frontend/Casino_19/gradlew
+    tags:
+        - FRONTEND
+    script:
+        - cd Frontend/Casino_19/
+        - ./gradlew assemble
+    artifacts:
+        paths:
+        - Frontend/Casino_19/app/build/outputs/
+    only:
+        - master
+        
+unitTests:
+    image: javiersantos/android-ci:latest
+    stage: androidtest
+    before_script:
+        - export GRADLE_USER_HOME=`pwd`/.gradle
+        - chmod +x ./Frontend/Casino_19/gradlew
+    tags:
+        - FRONTEND
+    script:
+        - cd Frontend/Casino_19/
+        - ./gradlew test
+    only:
+        - master

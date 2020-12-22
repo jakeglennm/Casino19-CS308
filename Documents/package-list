@@ -1,0 +1,10 @@
+com.example.casino_19
+com.example.casino_19.Activities
+com.example.casino_19.Games
+com.example.casino_19.Games.BlackJack
+com.example.casino_19.Games.DBUtil
+com.example.casino_19.Games.Euchre
+com.example.casino_19.Games.Pieces
+com.example.casino_19.Games.Poker
+com.example.casino_19.Login
+com.example.casino_19.Users

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Welcome</string>
+    <string name="log_in">Log in</string>
+    <string name="submit_login">Button</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="password">Password</string>
+    <string name="enter_email">Email</string>
+    <string name="displayText">TextView</string>
+</resources>
